@@ -167,10 +167,10 @@ const Services = () => {
     : services.filter(service => service.category === activeCategory);
 
   const stats = [
-    { label: isRTL ? 'دولة نخدمها' : 'Countries Served', value: '200+', icon: Globe, color: 'text-blue-500' },
-    { label: isRTL ? 'سنة خبرة' : 'Years Experience', value: '25+', icon: Clock, color: 'text-green-500' },
-    { label: isRTL ? 'عميل راضي' : 'Satisfied Clients', value: '10K+', icon: Users, color: 'text-purple-500' },
-    { label: isRTL ? 'معدل النجاح' : 'Success Rate', value: '99.8%', icon: TrendingUp, color: 'text-orange-500' }
+    { label: isRTL ? 'دولة نخدمها' : 'Countries Served', value: '200+', icon: Globe, color: 'bg-blue-500' },
+    { label: isRTL ? 'سنة خبرة' : 'Years Experience', value: '25+', icon: Clock, color: 'bg-green-500' },
+    { label: isRTL ? 'عميل راضي' : 'Satisfied Clients', value: '10K+', icon: Users, color: 'bg-purple-500' },
+    { label: isRTL ? 'معدل النجاح' : 'Success Rate', value: '99.8%', icon: TrendingUp, color: 'bg-orange-500' }
   ];
 
   const processSteps = [
@@ -252,7 +252,7 @@ const Services = () => {
                 const IconComponent = stat.icon;
                 return (
                   <div key={index} className="text-center">
-                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-lg mb-3 ${stat.color}`}>
+                    <div className={`inline-flex items-center justify-center w-12 h-12 rounded-full shadow-lg mb-3 ${stat.color}`}>
                       <IconComponent className="h-6 w-6 text-white" />
                     </div>
                     <div className="text-2xl font-bold text-gray-900 mb-1">{stat.value}</div>
@@ -431,7 +431,7 @@ const Services = () => {
             <Button size="lg" className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
               {isRTL ? 'طلب عرض أسعار' : 'Get a Quote'}
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold">
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold bg-transparent">
               {isRTL ? 'تواصل معنا' : 'Contact Us'}
             </Button>
           </div>

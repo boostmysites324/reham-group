@@ -12,7 +12,7 @@ const MembershipsSection = () => {
       description: isRTL 
         ? "عضو في الاتحاد الوطني للشحن والخدمات اللوجستية في الإمارات العربية المتحدة"
         : "Member of the National Association of Freight and Logistics in UAE",
-             logo: "/memberships/nafl-logo.svg",
+             logo: "/lovable-uploads/Logo-nafl-1-768x306.webp",
       website: "https://www.nafl.ae",
       icon: Shield,
       color: "from-blue-600 to-blue-700"
@@ -24,7 +24,7 @@ const MembershipsSection = () => {
       description: isRTL 
         ? "عضو في الاتحاد الدولي لجمعيات الشحن الجوي - أكبر منظمة غير حكومية في مجال الشحن"
         : "Member of the International Federation of Freight Forwarders Associations - the largest non-governmental organization in freight forwarding",
-             logo: "/memberships/fiata-logo.svg",
+             logo: "/lovable-uploads/fiata.svg",
       website: "https://fiata.org",
       icon: Globe,
       color: "from-green-600 to-green-700"
@@ -36,7 +36,7 @@ const MembershipsSection = () => {
       description: isRTL 
         ? "عضو في تحالف الشحن العالمي - أكبر شبكة مستقلة للشحن في العالم"
         : "Member of World Cargo Alliance - the world's largest independent freight network",
-             logo: "/memberships/wca-logo.svg",
+             logo: "/lovable-uploads/wcaeCom_(1).jpg",
       website: "https://www.worldcargoalliance.com",
       icon: Users,
       color: "from-purple-600 to-purple-700"
@@ -48,7 +48,7 @@ const MembershipsSection = () => {
       description: isRTL 
         ? "عضو في شبكة الشحن العالمية المتقدمة - خدمات شحن متكاملة عالمياً"
         : "Member of the advanced global freight network - integrated worldwide shipping services",
-             logo: "/memberships/wca-inter-global-logo.svg",
+             logo: "/lovable-uploads/logo_wcainterglobal.png",
       website: "https://www.wcainterglobal.com",
       icon: Award,
       color: "from-orange-600 to-orange-700"

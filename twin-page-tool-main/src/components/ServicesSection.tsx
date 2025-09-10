@@ -1,13 +1,14 @@
-import { CheckCircle } from "lucide-react";
+import { CheckCircle, Plane, Ship, Truck, Warehouse, FileText, Monitor } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import QuoteRequestForm from "@/components/QuoteRequestForm";
 import { useLanguage } from "@/contexts/LanguageContext";
-import airFreightImage from "@/assets/air-freight.jpg";
-import oceanFreightImage from "@/assets/ocean-freight.jpg";
-import finalMileImage from "@/assets/final-mile.jpg";
-import warehouseImage from "@/assets/warehouse.jpg";
-import customsOfficeImage from "@/assets/customs-office.jpg";
-import technologyImage from "@/assets/technology.jpg";
+// Updated to use images from public/lovable-uploads
+const airFreightImage = "/lovable-uploads/Freigh Forwarding.png";
+const oceanFreightImage = "/lovable-uploads/Freigh Forwarding.png";
+const finalMileImage = "/lovable-uploads/B2B B2C ORDER FULFILMENT.png";
+const warehouseImage = "/lovable-uploads/Logistics and Warehousing.png";
+const customsOfficeImage = "/lovable-uploads/Custom Brokerage.jpeg.jpg";
+const technologyImage = "/lovable-uploads/Collaborative Packaging.png";
 
 const ServicesSection = () => {
   const { t, isRTL } = useLanguage();
@@ -16,6 +17,7 @@ const ServicesSection = () => {
     {
       title: t('services.air_freight'),
       image: airFreightImage,
+      icon: Plane,
       features: isRTL ? [
         "شحن جوي سريع",
         "خدمات الطيران المستأجر", 
@@ -29,6 +31,7 @@ const ServicesSection = () => {
     {
       title: t('services.sea_freight'),
       image: oceanFreightImage,
+      icon: Ship,
       features: isRTL ? [
         "خدمات الحاويات الكاملة والجزئية",
         "شحن بحري عالمي",
@@ -42,6 +45,7 @@ const ServicesSection = () => {
     {
       title: isRTL ? "الميل الأول والأخير" : "First & Final Mile",
       image: finalMileImage,
+      icon: Truck,
       features: isRTL ? [
         "نقل محلي",
         "توصيل سريع",
@@ -55,6 +59,7 @@ const ServicesSection = () => {
     {
       title: t('services.logistics_warehousing'),
       image: warehouseImage,
+      icon: Warehouse,
       features: isRTL ? [
         "حلول التخزين",
         "إدارة المخزون",
@@ -68,6 +73,7 @@ const ServicesSection = () => {
     {
       title: t('services.custom_brokerage'),
       image: customsOfficeImage,
+      icon: FileText,
       features: isRTL ? [
         "تخليص جمركي",
         "توثيق",
@@ -81,6 +87,7 @@ const ServicesSection = () => {
     {
       title: t('nav.technology'),
       image: technologyImage,
+      icon: Monitor,
       features: isRTL ? [
         "تتبع في الوقت الفعلي",
         "رؤية سلسلة التوريد",
@@ -111,21 +118,27 @@ const ServicesSection = () => {
 
         {/* Services Grid */}
         <div className="grid md:grid-cols-3 gap-8 mb-12">
-          {services.map((service, index) => (
-            <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
-              {/* Image */}
-              <div className="relative h-48">
-                <img 
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 flex items-end" style={{backgroundColor: 'rgba(46, 40, 29, 0.5)'}}>
-                  <h3 className="text-xl font-bold text-white p-6 w-full">
-                    {service.title}
-                  </h3>
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <div key={index} className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover-scale animate-fade-in" style={{ animationDelay: `${index * 0.1}s` }}>
+                {/* Image */}
+                <div className="relative h-48">
+                  <img 
+                    src={service.image}
+                    alt={service.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 flex items-end" style={{backgroundColor: 'rgba(46, 40, 29, 0.5)'}}>
+                    <h3 className="text-xl font-bold text-white p-6 w-full">
+                      {service.title}
+                    </h3>
+                  </div>
+                  {/* Service Icon */}
+                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg">
+                    <IconComponent className="h-6 w-6 text-primary" />
+                  </div>
                 </div>
-              </div>
               
               {/* Features */}
               <div className="p-6">
@@ -139,7 +152,8 @@ const ServicesSection = () => {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Request Quote Button */}

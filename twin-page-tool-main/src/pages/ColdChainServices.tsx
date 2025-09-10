@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import BrochureDownloadCTA from "@/components/BrochureDownloadCTA";
 import { Thermometer, Shield, Truck, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import coldChainImage from "@/assets/warehouse.jpg";
+// Updated to use image from public/lovable-uploads
+const coldChainImage = "/lovable-uploads/Cold chain services.jpg";
 
 const ColdChainServices = () => {
   const { t, isRTL } = useLanguage();

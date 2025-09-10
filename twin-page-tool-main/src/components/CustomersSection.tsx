@@ -9,20 +9,16 @@ import emiratesLogo from "@/assets/emirates-logo.png";
 import maerskLogo from "@/assets/maersk-logo.png";
 import rtaLogo from "@/assets/rta-logo.png";
 import sunImpexLogo from "@/assets/sun-impex-logo.png";
-import valmontLogo from "@/assets/valmont-logo.png";
 import aquatechLogo from "@/assets/aquatech-logo.png";
 import ltFoodsLogo from "@/assets/lt-foods-logo.png";
+import newCustomer1Logo from "/lovable-uploads/3aa7e871-2592-40a3-81b5-cc28a97cbdb7.png";
+import newCustomer2Logo from "/lovable-uploads/c7376337-184a-4746-8022-9e846ca00a03.png";
 
 const CustomersSection = () => {
   const { language, isRTL, t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   const customers = [
-    {
-      name: "Valmont",
-      logo: valmontLogo,
-      alt: "Valmont logo"
-    },
     {
       name: "Aquatech",
       logo: aquatechLogo,
@@ -67,6 +63,16 @@ const CustomersSection = () => {
       name: "Sun Impex",
       logo: sunImpexLogo,
       alt: "Sun Impex logo"
+    },
+    {
+      name: "New Partner 1",
+      logo: newCustomer1Logo,
+      alt: "New Partner 1 logo"
+    },
+    {
+      name: "New Partner 2",
+      logo: newCustomer2Logo,
+      alt: "New Partner 2 logo"
     }
   ];
 
@@ -140,7 +146,7 @@ const CustomersSection = () => {
                   <img
                     src={customer.logo}
                     alt={customer.alt}
-                    className="h-16 md:h-20 object-contain max-w-full grayscale hover:grayscale-0 transition-all duration-300"
+                    className="h-16 md:h-20 object-contain max-w-full transition-all duration-300"
                   />
                 </div>
                 

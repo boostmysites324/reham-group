@@ -326,7 +326,7 @@ const Technology = () => {
                   </Button>
                 }
               />
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold">
+            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold bg-transparent">
               {isRTL ? 'تواصل معنا' : 'Contact Us'}
               </Button>
           </div>
