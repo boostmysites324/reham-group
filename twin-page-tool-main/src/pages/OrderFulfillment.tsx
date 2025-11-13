@@ -3,7 +3,6 @@ import Footer from "@/components/Footer";
 import BrochureDownloadCTA from "@/components/BrochureDownloadCTA";
 import { Users, Building, BarChart, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
-// Updated to use image from public/lovable-uploads
 const fulfillmentImage = "/lovable-uploads/B2B B2C ORDER FULFILMENT.png";
 
 const OrderFulfillment = () => {

@@ -10,28 +10,28 @@ const TestimonialsSection = () => {
   const testimonials = [
     {
       text: isRTL 
-        ? "كان العمل معكم سهلاً جداً! قدرت السرعة والاهتمام بالتفاصيل مع الأصول التي احتجتها. خاصة في وقت قصير. سار العمل بسلاسة وأشعر بالرعاية."
-        : "It was so easy working with you! I appreciated the speed and attention to detail with the assets I needed. Especially, short notice. The work went smoothly and I feel taken care of.",
-      author: "Max Kabanuk",
-      company: "Evolving Sanctuary",
+        ? "كانت وكالة رهام للشحن حاسمة في تبسيط الخدمات اللوجستية للرعاية الصحية. تضمن حلول الشحن الموثوقة وأنظمة التخزين المتقدمة تخزين إمداداتنا الطبية الحرجة بشكل آمن وتسليمها دون تأخير. الرؤية المدعومة بالتكنولوجيا التي يوفرونها حددت معياراً جديداً للكفاءة في سلسلة التوريد لدينا."
+        : "Reham Shipping has been instrumental in streamlining our healthcare logistics. Their reliable freight forwarding solutions and advanced warehousing systems ensure our critical medical supplies are stored securely and delivered without delay. The tech-enabled visibility they provide has set a new benchmark for efficiency in our supply chain.",
+      author: "Mr. Arjun Mehta",
+      company: "VP of a Leading Healthcare Company",
       bgColor: "bg-blue-50",
       logoColor: "bg-blue-600"
     },
     {
       text: isRTL 
-        ? "أنا ممتن جداً لأنني تعلمت الكثير عن التصميم وتأثيره على الأعمال. أتطلع إلى بناء علامة مشروع Hunesbee التجارية مع خبرتكم إلى جانبي."
-        : "I'm very grateful to have learned so much about design and its impact on businesses. I'm looking forward to building the Hunesbee Project brand with your expertise by my side.",
-      author: "Sarah Taylor",
-      company: "Hunesbee Project", 
+        ? "توسيع شركة تجارة إلكترونية يتطلب لوجستيات لا تشوبها شائبة، وكانت وكالة رهام للشحن الشريك المثالي. سمحت لنا خدمات الشحن الشاملة، والتميز في التوصيل على الطريق، ونظام إدارة التسليم بالوفاء بتوقعات العملاء باستمرار. يجمعون بين السرعة والشفافية، مما يجعلهم محركاً حيوياً لنمونا."
+        : "Scaling an e-commerce company requires flawless logistics, and Reham Shipping has been the perfect partner. Their end-to-end freight services, on-the-road delivery excellence, and delivery management system have allowed us to meet customer expectations consistently. They combine speed with transparency, making them a vital driver of our growth.",
+      author: "Ms. Sarah Khan",
+      company: "CEO of a Fastest-Growing E-commerce Company", 
       bgColor: "bg-amber-50",
       logoColor: "bg-amber-600"
     },
     {
       text: isRTL 
-        ? "كنا سعداء ومعجبين بالموقع! نحب مظهره وكيف عمل للعمل! تأكد زهر من فهم احتياجاتنا ثم تنفيذ ما نحتاجه."
-        : "We were happy and impressed by the website! We love how it looks and how it's worked for the business! Zahr made sure to understand our needs and then execute what we needed.",
-      author: "Ben Chaffee",
-      company: "EngineeredFitness",
+        ? "لقد غير العمل مع وكالة رهام للشحن عملياتنا اللوجستية. حلول الشحن الشاملة، والتخزين المحسّن، وتتبع التسليم المدعوم بالتكنولوجيا تمنحنا سيطرة كاملة على سلسلة التوريد لدينا. بدعمهم، يمكننا التركيز على توسيع علامتنا التجارية عالمياً، مع العلم أن لوجستياتنا في أيدٍ آمنة."
+        : "Working with Reham Shipping has transformed our logistics operations. Their comprehensive shipping solutions, optimized warehousing, and tech-enabled delivery tracking give us complete control over our supply chain. With their support, we can focus on expanding our brand globally, knowing our logistics are in safe hands.",
+      author: "Mr. Daniel Rodrigues",
+      company: "Operations Head of a Leading Cosmetic Brand",
       bgColor: "bg-rose-50",
       logoColor: "bg-rose-600"
     }

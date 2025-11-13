@@ -172,13 +172,14 @@ const ImpactSection = () => {
                   }
                 />
                 
-                <Button 
+                {/* Case Studies Button - Commented Out */}
+                {/* <Button 
                   variant="secondary" 
                   size="default" 
                   className="bg-white/15 border border-white/30 text-white hover:bg-white/25 hover:border-white/50 backdrop-blur-md px-6 py-3 font-semibold transition-all duration-300 hover-scale"
                 >
                   {t('impact.view_case_studies')}
-                </Button>
+                </Button> */}
               </div>
 
               {/* Compact Trust Indicators */}

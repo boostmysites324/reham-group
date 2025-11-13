@@ -1,29 +1,30 @@
 import { Ship, Facebook, Twitter, Linkedin, Instagram, MapPin, Phone, Mail, Clock } from "lucide-react";
+import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
   const { t, isRTL } = useLanguage();
 
   const services = [
-    t('services.air_freight'),
-    t('services.sea_freight'), 
-    t('services.project_cargo'),
-    t('services.custom_brokerage'),
-    t('services.logistics_warehousing')
+    { label: t('services.air_freight'), path: '/air-freight' },
+    { label: t('services.sea_freight'), path: '/sea-freight' }, 
+    { label: t('services.project_cargo'), path: '/project-cargo' },
+    { label: t('services.custom_brokerage'), path: '/custom-brokerage' },
+    { label: t('services.logistics_warehousing'), path: '/logistics-warehousing' }
   ];
 
   const company = [
-    t('nav.about'),
-    isRTL ? "فريقنا" : "Our Team",
-    isRTL ? "الوظائف" : "Careers", 
-    isRTL ? "الأخبار والتحديثات" : "News & Updates",
-    t('nav.contact')
+    { label: t('nav.about'), path: '/about' },
+    { label: isRTL ? "فريقنا" : "Our Team", path: '/about' },
+    { label: isRTL ? "الوظائف" : "Careers", path: '#' }, 
+    { label: isRTL ? "الأخبار والتحديثات" : "News & Updates", path: '#' },
+    { label: t('nav.contact'), path: '/contact' }
   ];
 
   const legalLinks = [
-    t('footer.privacy_policy'),
-    t('footer.terms_of_service'), 
-    isRTL ? "سياسة ملفات تعريف الارتباط" : "Cookie Policy"
+    { label: t('footer.privacy_policy'), path: '/privacy-policy' },
+    { label: t('footer.terms_of_service'), path: '/terms-of-service' }, 
+    { label: isRTL ? "سياسة ملفات تعريف الارتباط" : "Cookie Policy", path: '/cookie-policy' }
   ];
 
   return (
@@ -72,9 +73,9 @@ const Footer = () => {
             <ul className="space-y-3">
               {services.map((service, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                    {service}
-                  </a>
+                  <Link to={service.path} className="text-gray-300 hover:text-white transition-colors">
+                    {service.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -86,9 +87,9 @@ const Footer = () => {
             <ul className="space-y-3">
               {company.map((item, index) => (
                 <li key={index}>
-                  <a href="#" className="text-gray-300 hover:text-white transition-colors">
-                    {item}
-                  </a>
+                  <Link to={item.path} className="text-gray-300 hover:text-white transition-colors">
+                    {item.label}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -130,13 +131,13 @@ const Footer = () => {
             
             <div className={`flex ${isRTL ? 'space-x-reverse space-x-6' : 'space-x-6'}`}>
               {legalLinks.map((link, index) => (
-                <a
+                <Link
                   key={index}
-                  href="#"
+                  to={link.path}
                   className="text-gray-400 text-sm hover:text-white transition-colors"
                 >
-                  {link}
-                </a>
+                  {link.label}
+                </Link>
               ))}
             </div>
           </div>

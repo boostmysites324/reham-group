@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import QuoteRequestForm from "@/components/QuoteRequestForm";
-import { Search, Shield, Play, ArrowRight, CheckCircle } from "lucide-react";
+import { Search, Shield, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-warehouse.jpg";
@@ -11,9 +11,20 @@ const HeroSection = () => {
   const [trackingNumber, setTrackingNumber] = useState("");
 
   const handleTrackShipment = () => {
-    if (trackingNumber) {
-      // Handle tracking logic here
-      console.log("Tracking shipment:", trackingNumber);
+    // Only redirect if tracking number exists and is not empty
+    const trimmedTrackingNumber = trackingNumber?.trim();
+    if (!trimmedTrackingNumber) {
+      return; // Don't redirect if no tracking number
+    }
+    
+    // Redirect directly to holisoll - they will handle validation and show errors if invalid
+    const trackingUrl = `https://testreham.holisollogistics.com/track_order?awb=${encodeURIComponent(trimmedTrackingNumber)}`;
+    window.open(trackingUrl, '_blank');
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleTrackShipment();
     }
   };
 
@@ -87,14 +98,19 @@ const HeroSection = () => {
                 }
               />
               
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                className="bg-white/15 border border-white/30 text-white hover:bg-white/25 hover:border-white/50 backdrop-blur-md px-8 py-4 text-lg font-semibold transition-all duration-300 hover-scale"
-              >
-                <Play className={`h-5 w-5 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-                {t('hero.watch_demo')}
-              </Button>
+              {/* Request Quote Button */}
+              <QuoteRequestForm
+                trigger={
+                  <Button 
+                    variant="secondary" 
+                    size="lg" 
+                    className="bg-white/15 border border-white/30 text-white hover:bg-white/25 hover:border-white/50 backdrop-blur-md px-8 py-4 text-lg font-semibold transition-all duration-300 hover-scale"
+                  >
+                    {isRTL ? 'طلب عرض أسعار' : 'Request Quote'}
+                    <ArrowRight className={`h-5 w-5 ${isRTL ? 'mr-2 rotate-180' : 'ml-2'}`} />
+                  </Button>
+                }
+              />
             </div>
 
             {/* Stats */}
@@ -134,6 +150,7 @@ const HeroSection = () => {
                   placeholder={t('hero.track_placeholder')}
                   value={trackingNumber}
                   onChange={(e) => setTrackingNumber(e.target.value)}
+                  onKeyDown={handleKeyDown}
                   className={`h-14 text-lg border-2 border-gray-200 focus:border-primary ${isRTL ? 'pl-12' : 'pr-12'}`}
                 />
                 <Search className={`absolute top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 ${isRTL ? 'left-4' : 'right-4'}`} />

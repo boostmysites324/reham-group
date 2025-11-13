@@ -197,7 +197,7 @@ const CertificatesSection = () => {
                     </p>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
+                  <div>
                     <div>
                       <p className="text-sm font-medium text-muted-foreground">
                         {isRTL ? 'رقم الشهادة:' : 'Certificate No:'}
@@ -206,24 +206,26 @@ const CertificatesSection = () => {
                         {certificate.certificateNumber}
                       </p>
                     </div>
-                    <div>
+                    {/* Issue Date - Commented Out */}
+                    {/* <div>
                       <p className="text-sm font-medium text-muted-foreground">
                         {isRTL ? 'تاريخ الإصدار:' : 'Issue Date:'}
                       </p>
                       <p className="text-foreground font-semibold">
                         {certificate.issueDate}
                       </p>
-                    </div>
+                    </div> */}
                   </div>
 
-                  <div>
+                  {/* Expiry Date - Commented Out */}
+                  {/* <div>
                     <p className="text-sm font-medium text-muted-foreground">
                       {isRTL ? 'تاريخ انتهاء الصلاحية:' : 'Expiry Date:'}
                     </p>
                     <p className="text-foreground font-semibold">
                       {certificate.expiryDate}
                     </p>
-                  </div>
+                  </div> */}
 
                   {/* Scope of Services */}
                   {selectedCertificate === certificate.id && (
@@ -243,8 +245,8 @@ const CertificatesSection = () => {
                   )}
                 </div>
 
-                {/* Verification Link */}
-                <div className="mt-6 pt-4 border-t border-gray-200">
+                {/* Verification Link - Commented Out */}
+                {/* <div className="mt-6 pt-4 border-t border-gray-200">
                   <div className="flex items-center justify-between">
                     <span className="text-xs text-muted-foreground">
                       {isRTL ? 'للتحقق من صحة الشهادة:' : 'To verify certificate validity:'}
@@ -258,7 +260,7 @@ const CertificatesSection = () => {
                       {isRTL ? 'تحقق الآن' : 'Verify Now'}
                     </Button>
                   </div>
-                </div>
+                </div> */}
               </div>
             );
           })}

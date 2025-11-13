@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import QuoteRequestForm from '@/components/QuoteRequestForm';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -428,10 +429,19 @@ const Services = () => {
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
-              {isRTL ? 'طلب عرض أسعار' : 'Get a Quote'}
-            </Button>
-            <Button size="lg" variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold bg-transparent">
+            <QuoteRequestForm
+              trigger={
+                <Button size="lg" className="bg-white text-primary hover:bg-gray-100 px-8 py-4 text-lg font-semibold">
+                  {isRTL ? 'طلب عرض أسعار' : 'Get a Quote'}
+                </Button>
+              }
+            />
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-primary px-8 py-4 text-lg font-semibold bg-transparent"
+              onClick={() => window.location.href = '/contact'}
+            >
               {isRTL ? 'تواصل معنا' : 'Contact Us'}
             </Button>
           </div>

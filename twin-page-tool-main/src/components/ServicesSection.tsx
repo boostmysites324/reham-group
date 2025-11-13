@@ -2,7 +2,6 @@ import { CheckCircle, Plane, Ship, Truck, Warehouse, FileText, Monitor } from "l
 import { Button } from "@/components/ui/button";
 import QuoteRequestForm from "@/components/QuoteRequestForm";
 import { useLanguage } from "@/contexts/LanguageContext";
-// Updated to use images from public/lovable-uploads
 const airFreightImage = "/lovable-uploads/Freigh Forwarding.png";
 const oceanFreightImage = "/lovable-uploads/Freigh Forwarding.png";
 const finalMileImage = "/lovable-uploads/B2B B2C ORDER FULFILMENT.png";

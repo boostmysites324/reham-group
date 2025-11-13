@@ -1,9 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate } from "react-router-dom";
 import teamPhoto from "@/assets/team-photo.jpg";
 
 const AboutSection = () => {
   const { t, isRTL } = useLanguage();
+  const navigate = useNavigate();
 
   return (
     <section className="py-20 bg-background">
@@ -46,7 +48,10 @@ const AboutSection = () => {
               {t('about.description')}
             </p>
             
-            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 hover-scale">
+            <Button 
+              onClick={() => navigate('/about')}
+              className="bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-3 hover-scale"
+            >
               {t('about.read_more')}
             </Button>
           </div>

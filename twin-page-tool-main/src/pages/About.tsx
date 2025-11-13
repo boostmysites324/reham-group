@@ -18,7 +18,7 @@ const About = () => {
     {
       number: "15+",
       label: isRTL ? "سنة خبرة" : "Years Experience",
-      description: isRTL ? "قيادة الصناعة منذ 2008" : "Industry leadership since 2008"
+      description: isRTL ? "خدمة الصناعة منذ 2008" : "Serving the industry since 2008"
     },
     {
       number: "150+",
@@ -96,6 +96,73 @@ const About = () => {
                   </p>
                 </div>
               ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Network Section */}
+      <section className="py-24 md:py-32 bg-[#0F172A] relative overflow-hidden">
+        {/* Subtle World Map Background - Very Light Pattern */}
+        <div className="absolute inset-0 opacity-8">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+              backgroundSize: '60px 60px',
+              backgroundPosition: '0 0'
+            }}
+          ></div>
+        </div>
+
+        {/* Connecting Lines Between Locations Only */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <svg className="w-full h-full" style={{ opacity: 0.25 }}>
+            <line x1="20%" y1="50%" x2="50%" y2="50%" stroke="#FFD700" strokeWidth="2" strokeDasharray="8,4" />
+            <line x1="50%" y1="50%" x2="80%" y2="50%" stroke="#FFD700" strokeWidth="2" strokeDasharray="8,4" />
+          </svg>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          {/* Title */}
+          <div className="text-center mb-20 md:mb-24">
+            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+              {isRTL ? "شبكتنا" : "Our Network"}
+            </h2>
+          </div>
+
+          {/* Network Locations */}
+          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20 pb-8">
+            {/* Dubai, UAE */}
+            <div className="flex flex-col items-center group">
+              <div className="w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-[#FFD700] bg-transparent flex flex-col items-center justify-center p-6 hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl md:text-6xl mb-3">🇦🇪</div>
+                <div className="text-center">
+                  <p className="text-white font-semibold text-lg md:text-xl mb-1">Dubai</p>
+                  <p className="text-white/90 text-sm md:text-base">UAE</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Riyadh, Saudi Arabia */}
+            <div className="flex flex-col items-center group">
+              <div className="w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-[#FFD700] bg-transparent flex flex-col items-center justify-center p-6 hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl md:text-6xl mb-3">🇸🇦</div>
+                <div className="text-center">
+                  <p className="text-white font-semibold text-lg md:text-xl mb-1">Riyadh</p>
+                  <p className="text-white/90 text-sm md:text-base">Saudi Arabia</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Poland */}
+            <div className="flex flex-col items-center group">
+              <div className="w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-[#FFD700] bg-transparent flex flex-col items-center justify-center p-6 hover:scale-110 transition-transform duration-300">
+                <div className="text-5xl md:text-6xl mb-3">🇵🇱</div>
+                <div className="text-center">
+                  <p className="text-white font-semibold text-lg md:text-xl">Poland</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
