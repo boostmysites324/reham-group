@@ -102,65 +102,65 @@ const About = () => {
       </section>
 
       {/* Our Network Section */}
-      <section className="py-24 md:py-32 bg-[#0F172A] relative overflow-hidden">
-        {/* Subtle World Map Background - Very Light Pattern */}
-        <div className="absolute inset-0 opacity-8">
+      <section className="py-12 md:py-16 bg-gradient-to-br from-gray-50 via-white to-primary/5 relative overflow-hidden">
+        {/* Subtle Pattern Background */}
+        <div className="absolute inset-0 opacity-5">
           <div 
             className="absolute inset-0" 
             style={{
-              backgroundImage: `radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px)`,
-              backgroundSize: '60px 60px',
+              backgroundImage: `radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px)`,
+              backgroundSize: '40px 40px',
               backgroundPosition: '0 0'
             }}
           ></div>
         </div>
 
-        {/* Connecting Lines Between Locations Only */}
+        {/* Connecting Lines Between Locations */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <svg className="w-full h-full" style={{ opacity: 0.25 }}>
-            <line x1="20%" y1="50%" x2="50%" y2="50%" stroke="#FFD700" strokeWidth="2" strokeDasharray="8,4" />
-            <line x1="50%" y1="50%" x2="80%" y2="50%" stroke="#FFD700" strokeWidth="2" strokeDasharray="8,4" />
+          <svg className="w-full h-full" style={{ opacity: 0.2 }}>
+            <line x1="20%" y1="50%" x2="50%" y2="50%" stroke="hsl(43, 74%, 49%)" strokeWidth="2" strokeDasharray="8,4" />
+            <line x1="50%" y1="50%" x2="80%" y2="50%" stroke="hsl(43, 74%, 49%)" strokeWidth="2" strokeDasharray="8,4" />
           </svg>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           {/* Title */}
-          <div className="text-center mb-20 md:mb-24">
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-4">
+          <div className="text-center mb-12 md:mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-2">
               {isRTL ? "شبكتنا" : "Our Network"}
             </h2>
           </div>
 
           {/* Network Locations */}
-          <div className="flex flex-wrap justify-center items-center gap-12 md:gap-16 lg:gap-20 pb-8">
+          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16 pb-4">
             {/* Dubai, UAE */}
             <div className="flex flex-col items-center group">
-              <div className="w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-[#FFD700] bg-transparent flex flex-col items-center justify-center p-6 hover:scale-110 transition-transform duration-300">
-                <div className="text-5xl md:text-6xl mb-3">🇦🇪</div>
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-primary bg-white shadow-md flex flex-col items-center justify-center p-4 hover:scale-105 transition-transform duration-300 hover:shadow-lg">
+                <div className="text-4xl md:text-5xl mb-2">🇦🇪</div>
                 <div className="text-center">
-                  <p className="text-white font-semibold text-lg md:text-xl mb-1">Dubai</p>
-                  <p className="text-white/90 text-sm md:text-base">UAE</p>
+                  <p className="text-foreground font-semibold text-base md:text-lg mb-0.5">Dubai</p>
+                  <p className="text-muted-foreground text-xs md:text-sm">UAE</p>
                 </div>
               </div>
             </div>
 
             {/* Riyadh, Saudi Arabia */}
             <div className="flex flex-col items-center group">
-              <div className="w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-[#FFD700] bg-transparent flex flex-col items-center justify-center p-6 hover:scale-110 transition-transform duration-300">
-                <div className="text-5xl md:text-6xl mb-3">🇸🇦</div>
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-primary bg-white shadow-md flex flex-col items-center justify-center p-4 hover:scale-105 transition-transform duration-300 hover:shadow-lg">
+                <div className="text-4xl md:text-5xl mb-2">🇸🇦</div>
                 <div className="text-center">
-                  <p className="text-white font-semibold text-lg md:text-xl mb-1">Riyadh</p>
-                  <p className="text-white/90 text-sm md:text-base">Saudi Arabia</p>
+                  <p className="text-foreground font-semibold text-base md:text-lg mb-0.5">Riyadh</p>
+                  <p className="text-muted-foreground text-xs md:text-sm">Saudi Arabia</p>
                 </div>
               </div>
             </div>
 
             {/* Poland */}
             <div className="flex flex-col items-center group">
-              <div className="w-36 h-36 md:w-40 md:h-40 rounded-full border-2 border-[#FFD700] bg-transparent flex flex-col items-center justify-center p-6 hover:scale-110 transition-transform duration-300">
-                <div className="text-5xl md:text-6xl mb-3">🇵🇱</div>
+              <div className="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-primary bg-white shadow-md flex flex-col items-center justify-center p-4 hover:scale-105 transition-transform duration-300 hover:shadow-lg">
+                <div className="text-4xl md:text-5xl mb-2">🇵🇱</div>
                 <div className="text-center">
-                  <p className="text-white font-semibold text-lg md:text-xl">Poland</p>
+                  <p className="text-foreground font-semibold text-base md:text-lg">Poland</p>
                 </div>
               </div>
             </div>

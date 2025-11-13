@@ -90,11 +90,6 @@ const TestimonialsSection = () => {
                 key={index}
                 className={`${testimonial.bgColor} rounded-2xl p-8 shadow-sm border border-gray-100`}
               >
-                {/* Company Logo Placeholder */}
-                <div className={`w-20 h-10 ${testimonial.logoColor} rounded mb-6 flex items-center justify-center`}>
-                  <span className="text-white text-xs font-bold">LOGO</span>
-                </div>
-                
                 {/* Testimonial Text */}
                 <p className="text-gray-700 text-base leading-relaxed mb-6">
                   "{testimonial.text}"
@@ -108,16 +103,9 @@ const TestimonialsSection = () => {
                 </div>
                 
                 {/* Author Info */}
-                <div className="flex items-center">
-                  <div className={`w-10 h-10 bg-gray-300 rounded-full flex items-center justify-center ${isRTL ? 'ml-3' : 'mr-3'}`}>
-                    <span className="text-gray-600 text-sm font-medium">
-                      {testimonial.author.split(' ').map(n => n[0]).join('')}
-                    </span>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-800">{testimonial.author}</p>
-                    <p className="text-gray-600 text-sm">{testimonial.company}</p>
-                  </div>
+                <div>
+                  <p className="font-semibold text-gray-800">{testimonial.author}</p>
+                  <p className="text-gray-600 text-sm">{testimonial.company}</p>
                 </div>
               </div>
             ))}

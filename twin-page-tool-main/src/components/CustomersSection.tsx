@@ -64,16 +64,6 @@ const CustomersSection = () => {
       logo: sunImpexLogo,
       alt: "Sun Impex logo"
     },
-    {
-      name: "New Partner 1",
-      logo: newCustomer1Logo,
-      alt: "New Partner 1 logo"
-    },
-    {
-      name: "New Partner 2",
-      logo: newCustomer2Logo,
-      alt: "New Partner 2 logo"
-    }
   ];
 
   const nextSlide = () => {
