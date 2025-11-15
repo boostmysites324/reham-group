@@ -4,9 +4,10 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
-import { X, Shield, CheckCircle } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import emailjs from '@emailjs/browser';
+import SimpleCaptcha from './SimpleCaptcha';
 
 interface QuoteFormProps {
   trigger?: React.ReactNode;
@@ -26,6 +27,7 @@ const QuoteRequestForm = ({ trigger, isOpen, onOpenChange }: QuoteFormProps) => 
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
 
   const locations = [
     'Dubai, UAE',
@@ -46,6 +48,13 @@ const QuoteRequestForm = ({ trigger, isOpen, onOpenChange }: QuoteFormProps) => 
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate CAPTCHA
+    if (!captchaVerified) {
+      alert(isRTL ? 'يرجى حل السؤال الرياضي للتحقق' : 'Please solve the math question to verify');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
@@ -87,6 +96,7 @@ const QuoteRequestForm = ({ trigger, isOpen, onOpenChange }: QuoteFormProps) => 
           location: '',
           message: ''
         });
+        setCaptchaVerified(false);
         onOpenChange?.(false);
       }, 3000);
     } catch (error) {
@@ -103,6 +113,7 @@ const QuoteRequestForm = ({ trigger, isOpen, onOpenChange }: QuoteFormProps) => 
           location: '',
           message: ''
         });
+        setCaptchaVerified(false);
         onOpenChange?.(false);
       }, 3000);
     }
@@ -174,23 +185,9 @@ const QuoteRequestForm = ({ trigger, isOpen, onOpenChange }: QuoteFormProps) => 
             />
           </div>
 
-          {/* reCAPTCHA Simulation */}
-          <div className={`flex items-center p-4 bg-gray-50 rounded-lg border ${isRTL ? 'space-x-reverse space-x-3' : 'space-x-3'}`}>
-            <div className="w-6 h-6 border-2 border-gray-400 rounded flex items-center justify-center">
-              <CheckCircle className="h-4 w-4 text-primary" />
-            </div>
-            <div className="flex-1">
-              <div className={`flex items-center ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}>
-                <span className="text-sm text-gray-700">
-                  {isRTL ? 'لست روبوت' : 'I\'m not a robot'}
-                </span>
-                <Shield className="h-5 w-5 text-gray-500" />
-              </div>
-              <div className="text-xs text-gray-500">reCAPTCHA</div>
-            </div>
-            <div className="text-xs text-gray-400">
-              {isRTL ? 'الخصوصية - الشروط' : 'Privacy - Terms'}
-            </div>
+          {/* Simple Math CAPTCHA */}
+          <div>
+            <SimpleCaptcha onVerify={setCaptchaVerified} />
           </div>
 
           {/* Submit Button */}

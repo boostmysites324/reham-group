@@ -1,22 +1,23 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { CheckCircle } from "lucide-react";
-import { useState } from "react";
+// import { Input } from "@/components/ui/input";
+// import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { CheckCircle, Mail } from "lucide-react";
+// import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const QuoteSection = () => {
   const { t, isRTL } = useLanguage();
-  const [fromCity, setFromCity] = useState("");
-  const [toCity, setToCity] = useState("");
-  const [shipmentType, setShipmentType] = useState("");
+  // Form state - commented out
+  // const [fromCity, setFromCity] = useState("");
+  // const [toCity, setToCity] = useState("");
+  // const [shipmentType, setShipmentType] = useState("");
 
-  const handleGetQuote = () => {
-    if (fromCity && toCity && shipmentType) {
-      console.log("Quote request:", { fromCity, toCity, shipmentType });
-      // Handle quote request logic here
-    }
-  };
+  // const handleGetQuote = () => {
+  //   if (fromCity && toCity && shipmentType) {
+  //     console.log("Quote request:", { fromCity, toCity, shipmentType });
+  //     // Handle quote request logic here
+  //   }
+  // };
 
   const benefits = [
     t('quote.benefit_1'),
@@ -52,10 +53,41 @@ const QuoteSection = () => {
             </div>
           </div>
 
-          {/* Quote Form */}
+          {/* Contact Message - Form Commented Out */}
           <div className={`bg-white rounded-lg p-8 shadow-2xl ${isRTL ? 'lg:col-start-1' : ''}`}>
+            <div className="space-y-6 text-center">
+              <div className="flex justify-center mb-4">
+                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center">
+                  <Mail className="h-8 w-8 text-primary" />
+                </div>
+              </div>
+              
+              <p className="text-gray-600 text-lg mb-6 leading-relaxed">
+                {isRTL 
+                  ? 'أرسل لنا بريد إلكتروني يتضمن: المدينة التي تريد الشحن منها، المدينة التي تريد التوصيل إليها، ونوع الخدمة المطلوبة. وسنرد عليك بالأسعار'
+                  : 'Send us an email with: the city you want to ship from, the city you want to deliver to, and the type of service you need. We will reply with pricing'
+                }
+              </p>
+              
+              <Button 
+                asChild
+                className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 text-lg font-semibold"
+              >
+                <a href={`mailto:behzad@rehamshipping.com?subject=${encodeURIComponent(isRTL ? 'طلب عرض أسعار' : 'Custom Quote Request')}`}>
+                  <Mail className={`h-5 w-5 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                  {isRTL ? 'إرسال بريد إلكتروني' : 'Send Email'}
+                </a>
+              </Button>
+              
+              <p className="text-sm text-gray-500 mt-4">
+                {isRTL ? 'behzad@rehamshipping.com' : 'behzad@rehamshipping.com'}
+              </p>
+            </div>
+          </div>
+
+          {/* Quote Form - Commented Out */}
+          {/* <div className={`bg-white rounded-lg p-8 shadow-2xl ${isRTL ? 'lg:col-start-1' : ''}`}>
             <div className="space-y-6">
-              {/* Shipment Type */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   {isRTL ? 'نوع الشحنة' : 'Shipment Type'}
@@ -73,7 +105,6 @@ const QuoteSection = () => {
                 </Select>
               </div>
 
-              {/* From/To Cities */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
@@ -99,7 +130,6 @@ const QuoteSection = () => {
                 </div>
               </div>
 
-              {/* Get Quote Button */}
               <Button 
                 onClick={handleGetQuote}
                 className="w-full h-12 bg-primary text-primary-foreground hover:bg-primary/90 text-lg font-semibold"
@@ -107,7 +137,7 @@ const QuoteSection = () => {
                 {t('common.get_quote')}
               </Button>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </section>
