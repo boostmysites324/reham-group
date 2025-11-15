@@ -323,7 +323,7 @@ const Contact = () => {
                         </div>
                         <div className={`flex items-center text-sm text-muted-foreground ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}>
                           <Mail className="h-4 w-4" />
-                          info@rehamshipping.com
+                          behzad@rehamshipping.com
                         </div>
                       </div>
                     </div>
