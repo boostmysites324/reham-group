@@ -101,7 +101,11 @@ const Footer = () => {
             <div className="space-y-4">
               <div className="flex items-start">
                 <MapPin className={`h-5 w-5 text-primary mt-1 flex-shrink-0 ${isRTL ? 'ml-3' : 'mr-3'}`} />
-                <span className="text-gray-300">Business Bay, Dubai, UAE</span>
+                <div className="text-gray-300">
+                  <div>REHAM SHIPPING AGENCY LLC</div>
+                  <div>P.O.BOX NO.64323</div>
+                  <div>DUBAI, UAE</div>
+                </div>
               </div>
               
               <div className="flex items-center">

@@ -29,16 +29,18 @@ const BrochureDownloadCTA = () => {
             
             {/* Right CTA */}
             <div className={`flex-shrink-0 ${isRTL ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
-              <Button 
-                className="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 h-auto font-medium hover-scale"
-                onClick={() => {
-                  // In a real implementation, this would trigger a download
-                  alert(t('brochure.alert'));
-                }}
+              <a 
+                href="/brochure.pdf" 
+                download="Reham-Shipping-Brochure.pdf"
+                className="inline-block"
               >
-                <Download className={`h-4 w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
-                {t('brochure.download')}
-              </Button>
+                <Button 
+                  className="bg-primary hover:bg-primary/90 text-white px-6 py-2.5 h-auto font-medium hover-scale"
+                >
+                  <Download className={`h-4 w-4 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+                  {t('brochure.download')}
+                </Button>
+              </a>
               <p className="text-xs text-muted-foreground mt-2">
                 {t('brochure.updated')}
               </p>

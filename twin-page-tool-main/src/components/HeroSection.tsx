@@ -3,11 +3,13 @@ import { Input } from "@/components/ui/input";
 import QuoteRequestForm from "@/components/QuoteRequestForm";
 import { Search, Shield, ArrowRight, CheckCircle } from "lucide-react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 import heroImage from "@/assets/hero-warehouse.jpg";
 
 const HeroSection = () => {
   const { t, isRTL } = useLanguage();
+  const navigate = useNavigate();
   const [trackingNumber, setTrackingNumber] = useState("");
 
   const handleTrackShipment = () => {
@@ -177,11 +179,18 @@ const HeroSection = () => {
               <div className="text-center pt-4 border-t border-gray-200">
                 <p className="text-sm text-muted-foreground mb-3">{t('hero.quick_access')}</p>
                 <div className={`flex justify-center ${isRTL ? 'space-x-reverse space-x-4' : 'space-x-4'}`}>
-                  <button className="text-sm text-primary hover:underline font-medium">
-                    {t('hero.get_quote')}
-                  </button>
+                  <QuoteRequestForm
+                    trigger={
+                      <button className="text-sm text-primary hover:underline font-medium cursor-pointer">
+                        {t('hero.get_quote')}
+                      </button>
+                    }
+                  />
                   <span className="text-gray-300">•</span>
-                  <button className="text-sm text-primary hover:underline font-medium">
+                  <button 
+                    onClick={() => navigate('/contact')}
+                    className="text-sm text-primary hover:underline font-medium cursor-pointer"
+                  >
                     {t('hero.contact_support')}
                   </button>
                 </div>

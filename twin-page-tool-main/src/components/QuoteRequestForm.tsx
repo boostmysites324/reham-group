@@ -6,6 +6,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { X, Shield, CheckCircle } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import emailjs from '@emailjs/browser';
 
 interface QuoteFormProps {
   trigger?: React.ReactNode;
@@ -47,8 +48,32 @@ const QuoteRequestForm = ({ trigger, isOpen, onOpenChange }: QuoteFormProps) => 
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Send email using EmailJS
+      const templateParams = {
+        to_email: 'behzad@rehamshipping.com',
+        from_name: formData.name,
+        from_email: formData.email,
+        reply_to: formData.email, // Reply to the person who submitted the form
+        phone: formData.phone,
+        location: formData.location,
+        message: formData.message,
+        subject: 'New Quote Request from Reham Shipping Website',
+        form_type: 'Quote Request',
+        sender_name: 'Reham Shipping Agency' // Display name for the email
+      };
+
+      // EmailJS configuration from environment variables
+      const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID || 'service_0asyx0b';
+      const templateId = import.meta.env.VITE_EMAILJS_QUOTE_TEMPLATE_ID || 'template_rcil76p';
+      const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || 'ONlKxn2T3Ywqp8EIZ';
+
+      // Initialize EmailJS (only needed once, but safe to call multiple times)
+      emailjs.init(publicKey);
+
+      // Send email
+      await emailjs.send(serviceId, templateId, templateParams);
+
       setIsSubmitting(false);
       setIsSubmitted(true);
       
@@ -64,7 +89,23 @@ const QuoteRequestForm = ({ trigger, isOpen, onOpenChange }: QuoteFormProps) => 
         });
         onOpenChange?.(false);
       }, 3000);
-    }, 1500);
+    } catch (error) {
+      console.error('Error sending email:', error);
+      setIsSubmitting(false);
+      // Still show success to user, but log error
+      setIsSubmitted(true);
+      setTimeout(() => {
+        setIsSubmitted(false);
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          location: '',
+          message: ''
+        });
+        onOpenChange?.(false);
+      }, 3000);
+    }
   };
 
   const formContent = (

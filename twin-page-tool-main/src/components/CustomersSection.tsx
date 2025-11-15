@@ -2,17 +2,6 @@ import { useLanguage } from "@/contexts/LanguageContext";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from "react";
-import himalayanLogo from "@/assets/himalaya-wellness-logo.png";
-import tkElevatorLogo from "@/assets/tk-elevator-logo.png";
-import samsungLogo from "@/assets/samsung-logo.png";
-import emiratesLogo from "@/assets/emirates-logo.png";
-import maerskLogo from "@/assets/maersk-logo.png";
-import rtaLogo from "@/assets/rta-logo.png";
-import sunImpexLogo from "@/assets/sun-impex-logo.png";
-import aquatechLogo from "@/assets/aquatech-logo.png";
-import ltFoodsLogo from "@/assets/lt-foods-logo.png";
-import newCustomer1Logo from "/lovable-uploads/3aa7e871-2592-40a3-81b5-cc28a97cbdb7.png";
-import newCustomer2Logo from "/lovable-uploads/c7376337-184a-4746-8022-9e846ca00a03.png";
 
 const CustomersSection = () => {
   const { language, isRTL, t } = useLanguage();
@@ -20,49 +9,49 @@ const CustomersSection = () => {
 
   const customers = [
     {
-      name: "Aquatech",
-      logo: aquatechLogo,
-      alt: "Aquatech logo"
-    },
-    {
-      name: "LT Foods",
-      logo: ltFoodsLogo,
-      alt: "LT Foods logo"
-    },
-    {
       name: "Samsung",
-      logo: samsungLogo,
+      logo: "/logo/samsung.avif",
       alt: "Samsung logo"
     },
     {
-      name: "Himalaya Wellness",
-      logo: himalayanLogo,
-      alt: "Himalaya Wellness logo"
-    },
-    {
-      name: "TK Elevator",
-      logo: tkElevatorLogo, 
-      alt: "TK Elevator logo"
-    },
-    {
       name: "Emirates",
-      logo: emiratesLogo,
-      alt: "Emirates airline logo"
+      logo: "/logo/Emirates.webp",
+      alt: "Emirates airline logo",
     },
     {
       name: "Maersk",
-      logo: maerskLogo,
+      logo: "/logo/maersk.jpg",
       alt: "Maersk shipping logo"
     },
     {
       name: "RTA Dubai",
-      logo: rtaLogo,
+      logo: "/logo/RTA-Logo.avif",
       alt: "RTA Roads and Transport Authority logo"
     },
     {
       name: "Sun Impex",
-      logo: sunImpexLogo,
+      logo: "/logo/sun_impex.jpg",
       alt: "Sun Impex logo"
+    },
+    {
+      name: "Aquatech",
+      logo: "/logo/Aquatech.png",
+      alt: "Aquatech logo"
+    },
+    {
+      name: "LT Foods",
+      logo: "/logo/lt_foods.webp",
+      alt: "LT Foods logo"
+    },
+    {
+      name: "Himalaya",
+      logo: "/logo/himalaya.avif",
+      alt: "Himalaya Wellness logo"
+    },
+    {
+      name: "Hyundai",
+      logo: "/logo/HtcVN3-hyundai-logo-clipart-png-file.png",
+      alt: "Hyundai logo"
     },
   ];
 
@@ -83,7 +72,7 @@ const CustomersSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const visibleCustomers = customers.slice(currentIndex, currentIndex + 4);
+  const visibleCustomers = customers.slice(currentIndex, currentIndex + Math.min(4, customers.length));
 
   return (
     <section className="py-16 bg-muted/30">
@@ -132,11 +121,23 @@ const CustomersSection = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 {/* Logo */}
-                <div className="mb-4">
+                <div 
+                  className={`mb-4 flex items-center justify-center ${customer.hasDarkBg ? 'bg-black rounded-xl p-4' : ''}`}
+                  style={{ minHeight: '120px' }}
+                >
                   <img
                     src={customer.logo}
                     alt={customer.alt}
-                    className="h-16 md:h-20 object-contain max-w-full transition-all duration-300"
+                    className="h-28 md:h-40 lg:h-48 object-contain max-w-full transition-all duration-300"
+                    style={{
+                      width: 'auto',
+                      maxWidth: '200px',
+                      imageRendering: 'auto'
+                    }}
+                    onError={(e) => {
+                      // Fallback if image fails to load
+                      console.error(`Failed to load logo for ${customer.name}`);
+                    }}
                   />
                 </div>
                 

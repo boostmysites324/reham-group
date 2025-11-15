@@ -338,6 +338,38 @@ const Services = () => {
         </div>
       </section>
 
+      {/* CTA Section - After Services */}
+      <section className="py-16 bg-gradient-to-r from-primary/10 via-primary/5 to-white">
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            {isRTL ? 'هل تحتاج إلى مساعدة في اختيار الخدمة المناسبة؟' : 'Need Help Choosing the Right Service?'}
+          </h2>
+          <p className="text-lg text-gray-600 mb-8">
+            {isRTL 
+              ? 'تواصل مع خبرائنا للحصول على استشارة مجانية وتحديد الحل الأمثل لاحتياجاتك'
+              : 'Contact our experts for a free consultation and find the perfect solution for your needs'
+            }
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <QuoteRequestForm
+              trigger={
+                <Button size="lg" className="bg-primary text-white hover:bg-primary/90 px-8 py-4 text-lg font-semibold">
+                  {isRTL ? 'طلب عرض أسعار مجاني' : 'Get Free Quote'}
+                </Button>
+              }
+            />
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-4 text-lg font-semibold"
+              onClick={() => window.location.href = '/contact'}
+            >
+              {isRTL ? 'تواصل معنا' : 'Contact Us'}
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* Process Section */}
       <section className="py-20 bg-gray-900">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

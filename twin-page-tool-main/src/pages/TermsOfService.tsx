@@ -172,7 +172,7 @@ const TermsOfService = () => {
                   <strong>{isRTL ? "الهاتف:" : "Phone:"}</strong> +971 50 404 2388
                 </p>
                 <p className="text-gray-700 mt-2">
-                  <strong>{isRTL ? "العنوان:" : "Address:"}</strong> Business Bay, Dubai, UAE
+                  <strong>{isRTL ? "العنوان:" : "Address:"}</strong> REHAM SHIPPING AGENCY LLC, P.O.BOX NO.64323, DUBAI, UAE
                 </p>
               </div>
             </section>
