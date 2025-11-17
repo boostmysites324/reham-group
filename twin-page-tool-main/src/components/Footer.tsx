@@ -146,29 +146,23 @@ const Footer = () => {
             </div>
           </div>
           
-          {/* Designed and developed by corsnova */}
+          {/* Designed and managed by corsnova */}
           <div className="mt-8 pt-8 border-t border-gray-700">
-            <div className="flex items-center justify-center gap-2">
-              <span className="text-gray-400 text-sm">
-                Designed and developed by
+            <a
+              href="https://www.corsnova.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-3"
+            >
+              <span className="text-gray-400 text-sm tracking-wide">
+                Designed &amp; managed by
               </span>
-              <div className="flex items-center gap-0.5">
-                <span className="text-white font-semibold text-sm tracking-wide">corsn</span>
-                <svg 
-                  className="w-4 h-4" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="12" cy="12" r="3.5" fill="#D4AF37" />
-                  <path d="M12 2 L12 7 M12 17 L12 22 M2 12 L7 12 M17 12 L22 12 M5.64 5.64 L9.17 9.17 M14.83 14.83 L18.36 18.36 M5.64 18.36 L9.17 14.83 M14.83 9.17 L18.36 5.64" 
-                        stroke="#D4AF37" 
-                        strokeWidth="1.5" 
-                        strokeLinecap="round" />
-                </svg>
-                <span className="text-white font-semibold text-sm tracking-wide">va</span>
-              </div>
-            </div>
+              <img
+                src="/logo/download.png"
+                alt="corsnova"
+                className="h-8 w-auto object-contain"
+              />
+            </a>
           </div>
         </div>
       </div>
