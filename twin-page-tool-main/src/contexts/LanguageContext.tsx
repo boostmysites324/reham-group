@@ -137,7 +137,6 @@ const translations = {
     'brochure.description': 'Get detailed information about our services, capabilities, and global network.',
     'brochure.download': 'Download Brochure',
     'brochure.alert': 'Download will start automatically',
-    'brochure.updated': 'Updated December 2024',
 
     // Google Map Section
     'map.title': 'Our Location',

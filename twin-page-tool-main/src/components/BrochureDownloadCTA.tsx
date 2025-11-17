@@ -28,7 +28,7 @@ const BrochureDownloadCTA = () => {
             </div>
             
             {/* Right CTA */}
-            <div className={`flex-shrink-0 ${isRTL ? 'text-center md:text-left' : 'text-center md:text-right'}`}>
+            <div className="flex-shrink-0">
               <a 
                 href="/brochure.pdf" 
                 download="Reham-Shipping-Brochure.pdf"
@@ -41,9 +41,6 @@ const BrochureDownloadCTA = () => {
                   {t('brochure.download')}
                 </Button>
               </a>
-              <p className="text-xs text-muted-foreground mt-2">
-                {t('brochure.updated')}
-              </p>
             </div>
           </div>
         </div>

@@ -1,18 +1,10 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Target, Eye, Calendar, MapPin, Users, Award, Heart, Shield, Lightbulb, Handshake } from "lucide-react";
-import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
   const { t, isRTL } = useLanguage();
-  const [activeTab, setActiveTab] = useState("overview");
-
-  const tabs = [
-    { id: "overview", label: isRTL ? "نظرة عامة" : "Overview" },
-    { id: "story", label: isRTL ? "قصتنا" : "Our Story" },
-    { id: "values", label: isRTL ? "القيم" : "Values" }
-  ];
 
   const stats = [
     {
@@ -44,25 +36,6 @@ const About = () => {
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-gray-50 to-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Tab Navigation */}
-          <div className="flex justify-center mb-12">
-            <div className="flex bg-white rounded-xl p-2 shadow-lg border border-gray-100">
-              {tabs.map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={`px-8 py-3 rounded-lg font-semibold transition-all duration-300 ${
-                    activeTab === tab.id
-                      ? 'bg-primary text-primary-foreground shadow-md transform scale-105'
-                      : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
-                  }`}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
           {/* Page Title */}
           <div className="text-center mb-12">
             <h1 className="text-6xl md:text-7xl font-bold text-primary mb-6 leading-tight">
@@ -133,24 +106,22 @@ const About = () => {
 
           {/* Network Locations */}
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16 pb-4">
-            {/* Dubai, UAE */}
+            {/* UAE */}
             <div className="flex flex-col items-center group">
               <div className="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-primary bg-white shadow-md flex flex-col items-center justify-center p-4 hover:scale-105 transition-transform duration-300 hover:shadow-lg">
                 <div className="text-4xl md:text-5xl mb-2">🇦🇪</div>
                 <div className="text-center">
-                  <p className="text-foreground font-semibold text-base md:text-lg mb-0.5">Dubai</p>
-                  <p className="text-muted-foreground text-xs md:text-sm">UAE</p>
+                  <p className="text-foreground font-semibold text-base md:text-lg">UAE</p>
                 </div>
               </div>
             </div>
 
-            {/* Riyadh, Saudi Arabia */}
+            {/* Saudi Arabia */}
             <div className="flex flex-col items-center group">
               <div className="w-28 h-28 md:w-32 md:h-32 rounded-full border-2 border-primary bg-white shadow-md flex flex-col items-center justify-center p-4 hover:scale-105 transition-transform duration-300 hover:shadow-lg">
                 <div className="text-4xl md:text-5xl mb-2">🇸🇦</div>
                 <div className="text-center">
-                  <p className="text-foreground font-semibold text-base md:text-lg mb-0.5">Riyadh</p>
-                  <p className="text-muted-foreground text-xs md:text-sm">Saudi Arabia</p>
+                  <p className="text-foreground font-semibold text-base md:text-lg">Saudi Arabia</p>
                 </div>
               </div>
             </div>
@@ -168,10 +139,11 @@ const About = () => {
         </div>
       </section>
 
-      {/* Content Section - Conditional based on active tab */}
+      {/* Content Section - Overview */}
       <section className="py-16 bg-gradient-to-b from-white to-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {activeTab === "overview" && (
+          {/* Overview Content */}
+          {(
             <div className={`grid lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-flow-col-dense' : ''}`}>
               {/* Left Content */}
               <div className={`space-y-8 ${isRTL ? 'lg:col-start-2' : ''}`}>
@@ -243,9 +215,14 @@ const About = () => {
               </div>
             </div>
           )}
+        </div>
+      </section>
 
-          {/* Placeholder content for other tabs - you can add more translations as needed */}
-          {activeTab === "story" && (
+      {/* Our Story Section */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Story Content */}
+          {(
             <div className="max-w-6xl mx-auto">
               {/* Story Header */}
               <div className="text-center mb-20">
@@ -393,9 +370,14 @@ const About = () => {
               </div>
             </div>
           )}
+        </div>
+      </section>
 
-
-          {activeTab === "values" && (
+      {/* Values Section */}
+      <section className="py-16 bg-gradient-to-b from-white to-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Values Content */}
+          {(
             <div className="space-y-16">
               {/* Values Header */}
               <div className="text-center">
@@ -603,9 +585,6 @@ const About = () => {
           )}
         </div>
       </section>
-
-      {/* Additional Spacing Before Footer */}
-      <div className="py-8"></div>
 
       <Footer />
     </div>
