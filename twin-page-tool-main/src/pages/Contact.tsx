@@ -339,10 +339,19 @@ const Contact = () => {
                         {isRTL ? 'ساعات العمل والدعم' : 'Hours & Support'}
                       </h3>
                       <p className="text-muted-foreground mb-2">
-                        {isRTL 
-                          ? 'الأحد - الخميس: 8:00 ص - 6:00 م<br />دعم طوارئ 24/7'
-                          : 'Sun - Thu: 8:00 AM - 6:00 PM<br />24/7 Emergency Support'
-                        }
+                        {isRTL ? (
+                          <>
+                            الأحد - الخميس: 8:00 ص - 6:00 م
+                            <br />
+                            دعم طوارئ 24/7
+                          </>
+                        ) : (
+                          <>
+                            Sun - Thu: 8:00 AM - 6:00 PM
+                            <br />
+                            24/7 Emergency Support
+                          </>
+                        )}
                       </p>
                       <div className={`flex items-center text-sm text-muted-foreground ${isRTL ? 'space-x-reverse space-x-2' : 'space-x-2'}`}>
                         <Phone className="h-4 w-4" />
